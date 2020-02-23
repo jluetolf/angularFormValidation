@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <form [formGroup]="nameFormGroup">
+      <div class="form-group">
+        <label for="firstname">Vorname</label>
+        <input
+          type="text"
+          id="firstname"
+          formControlName="firstname"
+          [(ngModel)]="name.firstname">
+      </div>
+      <div class="form-group">
+        <label for="lastname">Nachname</label>
+        <input
+          type="text"
+          id="lastname"
+          formControlName="lastname"
+          [(ngModel)]="name.lastname">
+      </div>
+    </form>
+  </div>
+</div>

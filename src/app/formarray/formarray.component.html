@@ -1,0 +1,21 @@
+<form [formGroup]="parentFormGroup">
+  <app-name
+    [name]="state.name"
+    [nameFormArray]="parentFormGroup.controls.name"
+    [isValidationRequired]="isValidationRequired">
+  </app-name>
+  <br>
+  <app-address
+    [address]="state.address"
+    [addressFormArray]="parentFormGroup.controls.address"
+    [isValidationRequired]="isValidationRequired">
+  </app-address>
+  <br>
+  <button class="btn btn-primary" [disabled]="parentFormGroup.invalid"
+          (click)="onClicked()">Speichern
+  </button>
+</form>
+<br>
+<button class="btn btn-primary"
+        (click)="onToggleValidationClicked()">Toggle Validation
+</button>
