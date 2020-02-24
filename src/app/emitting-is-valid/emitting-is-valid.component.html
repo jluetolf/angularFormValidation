@@ -1,0 +1,22 @@
+<div class="container">
+  <app-name1
+    [name]="state.name"
+    [isValidationRequired]="isValidationRequired"
+    (isValid)="onIsValidName($event)">
+  </app-name1>
+  <br>
+  <app-address1
+    [address]="state.address"
+    [isValidationRequired]="isValidationRequired"
+    (isValid)="onIsValidAddress($event)">
+  </app-address1>
+  <br>
+  <button class="btn btn-primary" [disabled]="areComponentsInvalid()"
+          (click)="onClicked()">Speichern
+  </button>
+  <br>
+  <br>
+  <button class="btn btn-primary"
+          (click)="onToggleValidationClicked()">Toggle Validation
+  </button>
+</div>
