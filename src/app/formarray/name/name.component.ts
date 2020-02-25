@@ -7,26 +7,33 @@ import {FormArray, FormControl, FormGroup, Validators} from '@angular/forms';
   styleUrls: ['./name.component.css']
 })
 export class NameComponent implements OnInit, OnChanges {
-  nameFormGroup: FormGroup;
+  //nameFormGroup: FormGroup;
 
   @Input() name: { firstname: string, lastname: string };
-  @Input() nameFormArray: FormArray;
+  @Input() nameFormGroup: FormGroup;
   @Input() isValidationRequired: boolean;
 
   constructor() {
   }
 
   ngOnInit() {
-    this.nameFormGroup = new FormGroup({
-      firstname: new FormControl(this.name.firstname, Validators.required),
-      lastname: new FormControl(this.name.lastname, Validators.required)
-    });
+    // this.nameFormGroup = new FormGroup({
+    //   firstname: new FormControl(this.name.firstname, Validators.required),
+    //   lastname: new FormControl(this.name.lastname, Validators.required)
+    // });
 
-    this.nameFormArray.push(this.nameFormGroup.get('firstname'));
-    this.nameFormArray.push(this.nameFormGroup.get('lastname'));
+    // this.nameFormGroup.addControl('firstname', new FormControl(this.name.firstname, Validators.required));
+    // this.nameFormGroup.addControl('lastname', new FormControl(this.name.lastname, Validators.required));
+
   }
 
   ngOnChanges(changes: SimpleChanges): void {
+
+    if (this.nameFormGroup) {
+      this.nameFormGroup.addControl('firstname', new FormControl(this.name.firstname, Validators.required));
+      this.nameFormGroup.addControl('lastname', new FormControl(this.name.lastname, Validators.required));
+    }
+
     if (this.isValidationRequired) {
       this.setValidation();
     } else {

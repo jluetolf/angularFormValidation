@@ -8,14 +8,17 @@ import {FormArray, FormGroup} from '@angular/forms';
 })
 export class FormarrayComponent implements OnInit {
 
-  state = {name: {firstname: null, lastname: 'Luetolf'}, address: {street: 'Spiegelstr', city: 'Bern'}};
+  state = {names: [{firstname: 'Joerg', lastname: 'Luetolf'}, {firstname: 'Anton', lastname: 'Müller'}], address: {street: 'Spiegelstr', city: 'Bern'}};
   isValidationRequired = true;
 
   parentFormGroup: FormGroup;
 
   ngOnInit(): void {
+    const fomg = FormGroup[2];
+    fomg[0] = new FormGroup({});
+    fomg[1] = new FormGroup({});
     this.parentFormGroup = new FormGroup({
-      name: new FormArray([]),
+      name: new FormArray(fomg),
       address: new FormArray([])
     });
   }

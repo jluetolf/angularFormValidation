@@ -23,13 +23,11 @@ export class EmittingIsValidComponent implements OnInit {
   }
 
   onIsValidName(isValid: boolean) {
-    //this.validArray.set('name', isValid);
-    setTimeout(() => this.validArray.set('name', isValid));
+    setTimeout(()=> this.validArray.set('name', isValid));
 
   }
 
   onIsValidAddress(isValid: boolean) {
-    //this.validArray.set('address', isValid);
     setTimeout(() => this.validArray.set('address', isValid));
   }
 

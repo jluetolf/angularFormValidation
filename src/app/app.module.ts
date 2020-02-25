@@ -9,6 +9,7 @@ import { FormarrayComponent } from './formarray/formarray.component';
 import { EmittingIsValidComponent } from './emitting-is-valid/emitting-is-valid.component';
 import { Name1Component } from './emitting-is-valid/name1/name1.component';
 import { Address1Component } from './emitting-is-valid/address1/address1.component';
+import { NamesComponent } from './formarray/names/names.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { Address1Component } from './emitting-is-valid/address1/address1.compone
     FormarrayComponent,
     EmittingIsValidComponent,
     Name1Component,
-    Address1Component
+    Address1Component,
+    NamesComponent
   ],
   imports: [
     BrowserModule,

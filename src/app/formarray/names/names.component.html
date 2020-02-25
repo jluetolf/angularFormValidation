@@ -1,0 +1,3 @@
+<div *ngFor="let name of this.names; let i = index ">
+  <app-name [name]="name" [nameFormGroup]="this.nameFormArray[i]"></app-name>
+</div>

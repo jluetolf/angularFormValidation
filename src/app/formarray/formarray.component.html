@@ -1,14 +1,14 @@
 <div class="container">
   <form  [formGroup]="parentFormGroup">
-    <app-name
-      [name]="state.name"
+    <app-names
+      [names]="state.names"
       [nameFormArray]="parentFormGroup.controls.name"
       [isValidationRequired]="isValidationRequired">
-    </app-name>
+    </app-names>
     <br>
     <app-address
-      [address]="state.address"
       [addressFormArray]="parentFormGroup.controls.address"
+      [address]="state.address"
       [isValidationRequired]="isValidationRequired">
     </app-address>
     <br>
