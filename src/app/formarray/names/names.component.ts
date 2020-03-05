@@ -1,27 +1,21 @@
-import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
-import {FormArray, FormGroup} from '@angular/forms';
+import {Component, Input} from '@angular/core';
+import {FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-names',
   templateUrl: './names.component.html',
   styleUrls: ['./names.component.css']
 })
-export class NamesComponent implements OnChanges {
+export class NamesComponent {
   @Input() names: [{ firstname: string, lastname: string }];
-  @Input() nameFormArray: FormArray;
+  @Input() parentFormGroup: FormGroup;
   @Input() isValidationRequired: boolean;
 
-
-  constructor() {
-
+  onAddNameComponent() {
+    this.names.push({firstname: null, lastname: null});
   }
 
-
-  ngOnChanges(changes: SimpleChanges): void {
-    // this.nameFormArray.push(new FormGroup({}));
-    // this.nameFormArray.push(new FormGroup({}));
-    // this.names.forEach(value => {
-    //   this.nameFormArray.push(new FormGroup({}));
-    // });
+  onRemoveNameComponent() {
+    this.names.pop();
   }
 }

@@ -1,3 +1,9 @@
-<div *ngFor="let name of this.names; let i = index ">
-  <app-name [name]="name" [nameFormGroup]="this.nameFormArray[i]"></app-name>
-</div>
+<p-tabView>
+  <p-tabPanel *ngFor="let name of this.names; let i = index " [header]="'name' + i">
+    <app-name [name]="name" [parentFormGroup]="this.parentFormGroup" [isValidationRequired]="this.isValidationRequired" [index]="i"></app-name>
+  </p-tabPanel>
+</p-tabView>
+
+
+<button (click)="onAddNameComponent()" class="btn btn-primary">Add Name Component</button>
+<button (click)="onRemoveNameComponent()" class="btn btn-primary">RTemove</button>

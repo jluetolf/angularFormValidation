@@ -1,9 +1,10 @@
 <div *ngIf="nameFormGroup" class="container">
   <div class="row">
-    <form [formGroup]="nameFormGroup">
+    <form  [formGroup]="nameFormGroup">
       <div class="form-group">
         <label for="firstname">Vorname</label>
         <input
+          pInputText
           type="text"
           id="firstname"
           formControlName="firstname"

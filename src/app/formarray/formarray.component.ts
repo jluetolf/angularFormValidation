@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormArray, FormGroup} from '@angular/forms';
 
+const resolvedPromise = Promise.resolve(null);
+
 @Component({
   selector: 'app-formarray',
   templateUrl: './formarray.component.html',
@@ -14,12 +16,7 @@ export class FormarrayComponent implements OnInit {
   parentFormGroup: FormGroup;
 
   ngOnInit(): void {
-    const fomg = FormGroup[2];
-    fomg[0] = new FormGroup({});
-    fomg[1] = new FormGroup({});
     this.parentFormGroup = new FormGroup({
-      name: new FormArray(fomg),
-      address: new FormArray([])
     });
   }
 
@@ -29,5 +26,12 @@ export class FormarrayComponent implements OnInit {
 
   onToggleValidationClicked() {
     this.isValidationRequired = !this.isValidationRequired;
+  }
+
+  isInvalid() {
+    // if (this.parentFormGroup) {
+    //   this.parentFormGroup.updateValueAndValidity();
+    //   return this.parentFormGroup.invalid;
+    // }
   }
 }

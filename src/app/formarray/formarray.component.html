@@ -1,18 +1,18 @@
 <div class="container">
-  <form  [formGroup]="parentFormGroup">
+  <form  *ngIf="parentFormGroup" [formGroup]="parentFormGroup">
     <app-names
       [names]="state.names"
-      [nameFormArray]="parentFormGroup.controls.name"
+      [parentFormGroup]="parentFormGroup"
       [isValidationRequired]="isValidationRequired">
     </app-names>
     <br>
     <app-address
-      [addressFormArray]="parentFormGroup.controls.address"
+      [parentFormGroup]="parentFormGroup"
       [address]="state.address"
       [isValidationRequired]="isValidationRequired">
     </app-address>
     <br>
-    <button class="btn btn-primary" [disabled]="parentFormGroup.invalid"
+    <button class="btn btn-primary" [disabled]="this.parentFormGroup.invalid"
             (click)="onClicked()">Speichern
     </button>
   </form>
